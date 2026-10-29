@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="ds/crack-the-code-design-system-7d289831-1c23-4574-a592-107238cbba6e/tokens/colors.css">
+  <link rel="stylesheet" href="ds/crack-the-code-design-system-7d289831-1c23-4574-a592-107238cbba6e/tokens/typography.css">
+  <link rel="stylesheet" href="ds/crack-the-code-design-system-7d289831-1c23-4574-a592-107238cbba6e/tokens/base.css">
+  <link rel="stylesheet" href="ds/crack-the-code-design-system-7d289831-1c23-4574-a592-107238cbba6e/styles.css">
+  <script src="ds/crack-the-code-design-system-7d289831-1c23-4574-a592-107238cbba6e/_ds_bundle.js"></script>
+  <title>Fuera del Feed · Material para docentes</title>
+  <style>
+    body{margin:0;background:#F2F6FC;text-wrap:pretty;-webkit-font-smoothing:antialiased;font-family:"NT Bau",system-ui,sans-serif;color:#001F19;}
+    a{color:#1F4FB0;}a:hover{color:#001F19;}
+    a:focus-visible{outline:3px solid #2F6FE0;outline-offset:3px;}
+  </style>
+</helmet>
+<div lang="es" style="max-width:1120px;margin:0 auto;padding:clamp(16px,3vw,32px) clamp(12px,3vw,24px) 48px;display:flex;flex-direction:column;gap:22px;">
+
+  <header style="border-radius:24px;background:radial-gradient(60% 90% at 100% 0%,rgba(47,111,224,.5),transparent 60%),#001F19;color:#FFFFFF;padding:clamp(24px,4vw,44px);display:flex;flex-direction:column;gap:12px;">
+    <span style="align-self:flex-start;background:#6BE3D7;color:#001F19;font-weight:700;font-size:13px;letter-spacing:.12em;text-transform:uppercase;padding:7px 12px;border-radius:8px;">Material para docentes</span>
+    <h1 style="font-family:'Roca One Light',serif;font-weight:300;font-size:clamp(36px,5.6vw,58px);line-height:1;margin:0;">Fuera del Feed · Creando con IA</h1>
+    <p style="margin:0;font-size:17px;line-height:1.55;max-width:680px;">Bootcamp de 10 episodios. Cada estudiante produce un podcast de 2 capítulos, su identidad visual, un tráiler y un portafolio publicado. Abre cualquier cápsula para revisarla tal como la verá el estudiante.</p>
+  </header>
+
+  <a href="https://ctc-edu.github.io/Bienvenida-Fuera-del-Feed/" target="_blank" rel="noopener" style="text-decoration:none;color:#001F19;background:#FFFFFF;border:1px solid #DCE6F5;border-radius:20px;padding:18px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;" style-hover="border-color:#2F6FE0;">
+    <span style="width:52px;height:52px;border-radius:14px;background:#FFF3EA;display:inline-flex;align-items:center;justify-content:center;font-size:26px;flex:none;">👋</span>
+    <div style="flex:1;min-width:200px;display:flex;flex-direction:column;gap:2px;">
+      <span style="font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#9A4310;">Antes del Episodio 1</span>
+      <b style="font-size:20px;">Bienvenida al curso</b>
+      <span style="font-size:15px;color:#34405A;">De qué trata, proyectos de ejemplo, cuestionarios del Campus y Pixie.</span>
+    </div>
+    <span style="font-weight:700;font-size:15px;color:#1F4FB0;">Abrir →</span>
+  </a>
+
+  <sc-for list="{{ modules }}" as="m" hint-placeholder-count="3">
+    <section style="display:flex;flex-direction:column;gap:12px;">
+      <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;">
+        <b style="font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#2F6FE0;">{{ m.tag }}</b>
+        <span style="font-size:15px;color:#34405A;">{{ m.d }}</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));gap:12px;">
+        <sc-for list="{{ m.eps }}" as="e" hint-placeholder-count="3">
+          <a href="{{ e.href }}" target="_blank" rel="noopener" style="text-decoration:none;color:#001F19;background:#FFFFFF;border:1px solid #DCE6F5;border-radius:20px;overflow:hidden;display:flex;flex-direction:column;" style-hover="border-color:#2F6FE0;">
+            <div style="aspect-ratio:16/9;background:#EAF2FF;overflow:hidden;"><img src="{{ e.img }}" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+            <div style="padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1;">
+              <span style="font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#0E6B5E;">Episodio {{ e.n }}</span>
+              <b style="font-size:18px;line-height:1.25;">{{ e.t }}</b>
+              <span style="font-size:14px;line-height:1.5;color:#34405A;flex:1;">{{ e.d }}</span>
+              <span style="font-size:13px;font-weight:700;color:#9A4310;">{{ e.bit }}</span>
+            </div>
+          </a>
+        </sc-for>
+      </div>
+    </section>
+  </sc-for>
+
+  <section style="background:#FFFFFF;border:1px solid #DCE6F5;border-radius:20px;padding:18px 20px;display:flex;flex-direction:column;gap:10px;">
+    <b style="font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#2F6FE0;">Cómo está armado cada episodio</b>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr));gap:8px;">
+      <sc-for list="{{ parts }}" as="p" hint-placeholder-count="6">
+        <div style="background:#F6F9FD;border-radius:14px;padding:12px;display:flex;flex-direction:column;gap:4px;">
+          <b style="font-size:15px;">{{ p.t }}</b>
+          <span style="font-size:14px;line-height:1.45;color:#34405A;">{{ p.d }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const E = [
+      [1, 'Lo que el feed no muestra', 'Manifiesto, cazar alucinaciones de la IA y mapa de historias del barrio.', 'Bitácora: Manifiesto + 3 finalistas', 'e1/assets/e1/01-portada.jpg'],
+      [2, 'La historia y su nombre', 'Elegir la historia, investigarla, crear el personaje y el nombre del podcast.', 'Bitácora: historia, ajuste del Consejo, ficha y avatar', 'e2/assets/e2/01-portada.jpg'],
+      [3, 'Cómo suena una historia', 'Cold open, entrevista al personaje, escaleta y guion del capítulo 1.', 'Bitácora: Mi guion', 'e3/assets/e3/01-portada.jpg'],
+      [4, 'Estudio de grabación', 'Voces con IA, música y primer ensamble del capítulo 1.', 'Sin registro en bitácora', 'e4/assets/e4/01-portada.jpg'],
+      [5, 'Edición: tu capítulo 1', 'Cortes, ritmo, personaje animado y exportar el capítulo 1.', 'Bitácora: capítulo 1', 'e5/assets/e5/01-portada.jpg'],
+      [6, 'Tu capítulo 2', 'Guion, entrevista al personaje y producción del capítulo 2.', 'Bitácora: capítulo 2', 'e6/assets/e6/01-portada.jpg'],
+      [7, 'La cara de tu historia', 'Paleta, letra, imagen con intención, portada y kit de marca.', 'Portada en Borradores', 'e7/assets/e7/01-portada.jpg'],
+      [8, 'Tráiler', 'Tráiler de 30 s, clip vertical y ficha visual.', 'Bitácora: identidad visual', 'e8/assets/e8/e8-portada.jpg'],
+      [9, 'Al aire', 'Privacidad, portafolio publicado, QR y créditos.', 'Bitácora: enlace del portafolio', 'e9/assets/e9/e9-portada.jpg'],
+      [10, 'Estreno', 'Pitch, presentación ante el jurado y cierre de temporada.', 'Bitácora: reflexión final', 'e10/assets/e10/e10-portada.jpg']
+    ].map(([n, t, d, bit, img]) => ({ n, t, d, bit, href: 'https://ctc-edu.github.io/E' + n + '-Fuera-del-Feed/', img: 'https://ctc-edu.github.io/E' + n + '-Fuera-del-Feed/' + img.replace(/^e\d+\//, '') }));
+    return {
+      modules: [
+        { tag: 'Módulo 1 · La historia', d: 'Episodios 1 a 3', eps: E.slice(0, 3) },
+        { tag: 'Módulo 2 · El sonido', d: 'Episodios 4 a 6', eps: E.slice(3, 6) },
+        { tag: 'Módulo 3 · La imagen y el estreno', d: 'Episodios 7 a 10', eps: E.slice(6) }
+      ],
+      parts: [
+        { t: 'Inicio', d: 'Portada, misión del día y antes de empezar.' },
+        { t: 'Transmisión', d: 'Mensaje de La Editora, una idea por pantalla.' },
+        { t: 'Valentina', d: 'Caso modelo: el estudiante vota y se revela el error.' },
+        { t: 'Escenas', d: 'Actividades obligatorias y opcionales, con niveles.' },
+        { t: 'Comprueba', d: 'Juego corto con retroalimentación inmediata.' },
+        { t: 'Cierre', d: 'Evidencia, ruta y recordatorio de bitácora.' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
